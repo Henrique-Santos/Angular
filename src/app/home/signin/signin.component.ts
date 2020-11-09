@@ -8,7 +8,7 @@ import { AuthService } from '../../core/auth/auth.service';
 @Component({
     templateUrl: './signin.component.html'
 })
-export class SigninComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
     loginForm: FormGroup
     @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>
