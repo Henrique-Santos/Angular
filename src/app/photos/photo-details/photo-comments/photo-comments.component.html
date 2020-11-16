@@ -15,18 +15,19 @@
         </li>
     </ul>
     <div class="mt-4">
-        <form [formGroup]="commentForm">
-          <div class="input-group">
-            <ap-vmessage 
-                text="Maximun size allowed is 300" 
-                *ngIf="commentForm.get('comment').errors?.maxlength">
-            </ap-vmessage>  
+        <form [formGroup]="commentForm" (submit)="save()">
+          <div class="input-group">  
             <textarea formControlName="comment" class="form-control"></textarea>
             <div class="input-group-append">
               <button [disabled]="commentForm.invalid"
+                type="submit"
                 class="btn btn-primary pull-left">Publish</button>
             </div>
           </div>
+          <ap-vmessage 
+            text="Maximun size allowed is 300" 
+            *ngIf="commentForm.get('comment').errors?.maxlength">
+          </ap-vmessage>
         </form>
       </div>
 <div>
