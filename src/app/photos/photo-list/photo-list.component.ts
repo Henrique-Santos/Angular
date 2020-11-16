@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,8 +24,10 @@ export class PhotoListComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
-    this.userName = this.activatedRoute.snapshot.params.userName
-    this.photos = this.activatedRoute.snapshot.data.photos
+    this.activatedRoute.params.subscribe(params => {
+      this.userName = params.userName
+      this.photos = this.activatedRoute.snapshot.data.photos
+    })
   }
 
   load() {
