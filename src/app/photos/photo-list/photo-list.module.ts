@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -22,7 +23,8 @@ import { SearchComponent } from './search/search.component';
         CommonModule, 
         PhotoModule,
         CardModule,
-        DarkenOnHoverModule
+        DarkenOnHoverModule,
+        RouterModule
     ]
 })
 export class PhotoListModule { }
