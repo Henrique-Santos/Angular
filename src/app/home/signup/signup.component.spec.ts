@@ -58,7 +58,7 @@ describe('O formulário SignUp', () => {
         expect(navigateSpy).toHaveBeenCalledWith([''])
     })
 
-    it('Deve realizar um log caso ocorra algum erro', () => {
+    it('Deve realizar o log caso ocorra algum erro', () => {
         spyOn(signupService, 'signup').and
             .returnValue(throwError('Erro de Servidor'))
 
