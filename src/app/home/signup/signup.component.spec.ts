@@ -50,8 +50,8 @@ describe('O formulário SignUp', () => {
 
         component.signupForm.get('email').setValue('henrique@mail.com')
         component.signupForm.get('fullName').setValue('Henrique Santos')
-        component.signupForm.get('userName').setValue('Henrique')
-        component.signupForm.get('password').setValue('123')
+        component.signupForm.get('userName').setValue('henriquey')
+        component.signupForm.get('password').setValue('12345678')
 
         component.signup()
 
@@ -64,8 +64,8 @@ describe('O formulário SignUp', () => {
 
         component.signupForm.get('email').setValue('henrique@mail.com')
         component.signupForm.get('fullName').setValue('Henrique Santos')
-        component.signupForm.get('userName').setValue('Henrique')
-        component.signupForm.get('password').setValue('123')
+        component.signupForm.get('userName').setValue('henriquex')
+        component.signupForm.get('password').setValue('12345678')
 
         const spyLog = spyOn(console, 'log')
 
