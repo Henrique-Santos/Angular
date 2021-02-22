@@ -1,5 +1,5 @@
 import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { waitForAsync, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
@@ -14,6 +14,18 @@ describe('O formulário SignUp', () => {
     let component: SignUpComponent
     let router: Router
     let signupService: SignUpService
+
+    // TODO: Testar
+    class MockUserNotTakenValidatorService {
+        // Sempre que eu retorno null, o FormGroup entende que o campo esta válido
+        // Se eu retornar qualquer objeto (independente de seus valores), o FormGropu entende que o campo esta inválido
+        checkUserNameTaken() {
+            return (control: AbstractControl) => {
+                console.log(`Mock: ${control.value}`)
+                return of(null);
+            }
+        }
+    }
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
@@ -32,6 +44,12 @@ describe('O formulário SignUp', () => {
     }))
 
     beforeEach(() => {
+        // TODO: Testar
+        // Necessário, pois este provider foi enviado direto para o @Component do objeto de teste
+        TestBed.overrideProvider(UserNotTakenValidatorService, {
+            useValue: new MockUserNotTakenValidatorService()
+        })
+        
         router = TestBed.inject(Router)
         signupService = TestBed.inject(SignUpService)
 
